@@ -82,10 +82,10 @@ html, body {
     padding-right: 20px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 719px) {
     .main-head h1 {
         /* fix for 480p*/
-        font-size: 23px;
+        font-size: 26px;
     }
 }
 
