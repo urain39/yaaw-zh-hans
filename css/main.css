@@ -18,6 +18,14 @@
  *
  */
 
+/*
+ * main.css has been edited by urain39@cyfan.cf for MoeLoli.ML
+ */
+
+html, body {
+    height: 100%;
+}
+
 .select-box {
     cursor: pointer;
 }
@@ -37,6 +45,22 @@
 }
 .main-head h1 {
     display: inline-block;
+}
+
+/* container */
+#main-container {
+    height: 92%;
+    overflow-y: auto;
+    padding-right: 5%;
+    margin-right: -5%;
+}
+
+/* footer */
+#main-footer {
+    height: 8%;
+    padding-top: 5%;
+    text-align: center;
+    border-top: 1px solid #DDD;
 }
 
 #main-alert {
@@ -94,7 +118,8 @@
 
 /* active-tasks */
 #active-tasks {
-    margin-top: 40px;
+    min-height: 40%;
+    margin-top: 4%;
 }
 .empty-tasks {
     text-align: center;
@@ -110,7 +135,8 @@
 
 /* other-tasks */
 #other-tasks {
-    margin-top: 40px;
+    min-height: 40%;
+    margin-top: 4%;
 }
 #waiting-tasks-table {
     margin-bottom: 0;
