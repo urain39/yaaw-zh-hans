@@ -137,8 +137,14 @@ html, body {
 
 @media (max-width: 1080px) {
     #main-footer section {
-        font-size: 10px;
+        font-size: 14px;
     }
+}
+
+@media (max-width: 480px) {
+   #main-footer section {
+       font-size: 8px; /* WTF!? */
+   }
 }
 
 #main-alert {
