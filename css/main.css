@@ -68,7 +68,7 @@ html, body {
 
 /* dashboard */
 #control-container {
-    height: 40%;
+    height: 20%;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -89,30 +89,20 @@ html, body {
 
 /* container */
 #main-container {
-    height: 50%;
+    height: 70%;
     overflow-y: auto;
     padding-left: 20px;
     padding-right: 20px;
     border-top: 1px solid #AAA;
 }
 
-/* Phone Style */
-@media (min-width: 360px) and (max-height: 720px) and (orientation : portrait) {
-   #control-container {
-       height: 30%;
-   }
-   #main-container {
-       height: 60%;
-   }
-}
-
-/* PC Style */
-@media (min-width: 769px) and (min-height: 720px) and (orientation : portrait) {
+/* fix for Mobile Devices */
+@media (orientation: landscape) and (max-width: 980px) {
     #control-container {
-        height: 20%;
+        height: 40%;
     }
     #main-container {
-        height: 70%;
+        height: 50%;
     }
 }
 
