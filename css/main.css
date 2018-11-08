@@ -68,15 +68,10 @@ html, body {
 
 /* dashboard */
 #control-container {
-    height: 34%;
+    height: auto;
     padding-left: 20px;
     padding-right: 20px;
-}
-
-@media (max-height: 320px) {
-    #control-container {
-        padding-bottom: 10px;
-    }
+    padding-bottom: 20px;
 }
 
 /* header */
@@ -89,7 +84,7 @@ html, body {
 
 /* container */
 #main-container {
-    height: 56%;
+    height: 60%;
     overflow-y: auto;
     padding-left: 20px;
     padding-right: 20px;
@@ -99,17 +94,18 @@ html, body {
 /* fix for Mobile Devices */
 @media (orientation: landscape) and (max-width: 980px) {
     #control-container {
-        height: 40%;
+        height: auto;
+        padding-top: 15px;
     }
     #main-container {
-        height: 50%;
+        height: 58%;
     }
 }
 
 @media (max-width: 480px) {
     .main-head h1 {
         /* fix for 480p */
-        font-size: 26px;
+        font-size: 24px;
     }
 }
 
