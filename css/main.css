@@ -19,7 +19,7 @@
  */
 
 /*
- * main.css has been edited by urain39@cyfan.cf for MoeLoli.ML
+ * Copyright (C) 2018 MoeLoli.ML <urain39@qq.com>
  */
 
 ::-webkit-scrollbar {
@@ -34,7 +34,7 @@
 }
 
 ::-webkit-scrollbar-track {
-    box-shadow: 1px 1px 5px rgba(0,0,0,.2) inset;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .2) inset;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -66,6 +66,19 @@ html, body {
     display: none !important;
 }
 
+/* dashboard */
+#dashboard {
+    height: 40%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+@media (max-height: 480px) {
+    #dashboard {
+        padding-bottom: 10px;
+    }
+}
+
 /* header */
 .main-head {
     position: relative;
@@ -76,15 +89,23 @@ html, body {
 
 /* container */
 #main-container {
-    height: 90%;
+    height: 50%;
     overflow-y: auto;
     padding-left: 20px;
     padding-right: 20px;
+    border-top: 1px solid #AAA;
+}
+
+@media (min-height: 480px) {
+    #main-container {
+        margin-top: -20px;
+        padding-top: 20px;
+    }
 }
 
 @media (max-width: 480px) {
     .main-head h1 {
-        /* fix for 480p*/
+        /* fix for 480p */
         font-size: 26px;
     }
 }
@@ -97,10 +118,10 @@ html, body {
 
 /* footer */
 #main-footer {
-    height: 30px;
+    height: 28px;
     padding-top: 20px;
     text-align: center;
-    border-top: 1px solid #DDD;
+    border-top: 1px solid #AAA;
 }
 
 #main-alert {
