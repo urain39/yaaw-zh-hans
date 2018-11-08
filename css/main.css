@@ -19,7 +19,7 @@
  */
 
 /*
- * Copyright (C) 2018 MoeLoli.ML <urain39@qq.com>
+ * Copyright (C) 2018 MoeLoli.ML-Edition <urain39@qq.com>
  */
 
 ::-webkit-scrollbar {
@@ -67,7 +67,7 @@ html, body {
 }
 
 /* dashboard */
-#control-container {
+#head-container {
     height: auto;
     padding-left: 20px;
     padding-right: 20px;
@@ -82,7 +82,7 @@ html, body {
     display: inline-block;
 }
 
-/* container */
+/* main container */
 #main-container {
     height: 60%;
     overflow-y: auto;
@@ -91,11 +91,18 @@ html, body {
     border-top: 1px solid #AAA;
 }
 
-/* fix for Mobile Devices */
+/* fix for PC */
+@media (min-height: 980px) {
+    #main-container {
+        height: 76%;
+    }
+}
+
+/* fix for Mobile */
 @media (orientation: landscape) and (max-width: 980px) {
-    #control-container {
+    #head-container {
         height: auto;
-        padding-top: 15px;
+        padding-bottom: 10px;
     }
     #main-container {
         height: 58%;
@@ -116,6 +123,14 @@ html, body {
     text-align: center;
     border-top: 1px solid #AAA;
 }
+
+#setting-modal {
+    /* FIXME: Adjust the height and postion for Mobile */
+}
+
+/*
+ * END OF THE MoeLoli.ML Edition
+ */
 
 #main-alert {
     position: absolute;
