@@ -49,90 +49,90 @@ var YAAW = (function() {
 		},
 
 		event_init: function() {
-			$("#add-task-submit").live("click", function() {
+			$("#add-task-submit").on("click", function() {
 				YAAW.add_task.submit();return false;
 			});
 			$("#add-task-uri").submit(function() {
 				YAAW.add_task.submit();return false;
 			});
-			$("#saveSettings").live("click", function() {
+			$("#saveSettings").on("click", function() {
 				YAAW.setting.submit();return false;
 			});
 			$("#setting-form").submit(function() {
 				YAAW.setting.submit();return false;
 			});
-			$("#add-task-clear").live("click", function() {
+			$("#add-task-clear").on("click", function() {
 				YAAW.add_task.clean();
 			});
-			$("#btnRemove").live("click", function() {
+			$("#btnRemove").on("click", function() {
 				YAAW.tasks.remove();YAAW.tasks.unSelectAll();
 			});
-			$("#btnPause").live("click", function() {
+			$("#btnPause").on("click", function() {
 				YAAW.tasks.pause();YAAW.tasks.unSelectAll();
 			});
-			$("#btnUnPause").live("click", function() {
+			$("#btnUnPause").on("click", function() {
 				YAAW.tasks.unpause();YAAW.tasks.unSelectAll();
 			});
-			$("#btnClearAlert").live("click", function() {
+			$("#btnClearAlert").on("click", function() {
 				$('#main-alert').hide();
 			});
-			$("#btnSelectActive").live("click", function() {
+			$("#btnSelectActive").on("click", function() {
 				YAAW.tasks.selectActive();
 			});
-			$("#btnSelectWaiting").live("click", function() {
+			$("#btnSelectWaiting").on("click", function() {
 				YAAW.tasks.selectWaiting();
 			});
-			$("#btnSelectPaused").live("click", function() {
+			$("#btnSelectPaused").on("click", function() {
 				YAAW.tasks.selectPaused();
 			});
-			$("#btnSelectStopped").live("click", function() {
+			$("#btnSelectStopped").on("click", function() {
 				YAAW.tasks.selectStopped();
 			});
-			$("#btnStartAll").live("click", function() {
+			$("#btnStartAll").on("click", function() {
 				ARIA2.unpause_all();
 			});
-			$("#btnPauseAll").live("click", function() {
+			$("#btnPauseAll").on("click", function() {
 				ARIA2.pause_all();
 			});
-			$("#btnRemoveFinished").live("click", function() {
+			$("#btnRemoveFinished").on("click", function() {
 				ARIA2.purge_download_result();
 			});
-			$("#closeAlert").live("click", function() {
+			$("#closeAlert").on("click", function() {
 				$('#add-task-alert').hide();
 			});
-			$("#menuMoveTop").live("click", function() {
+			$("#menuMoveTop").on("click", function() {
 				YAAW.contextmenu.movetop();
 			});
-			$("#menuMoveUp").live("click", function() {
+			$("#menuMoveUp").on("click", function() {
 				YAAW.contextmenu.moveup();
 			});
-			$("#menuMoveDown").live("click", function() {
+			$("#menuMoveDown").on("click", function() {
 				YAAW.contextmenu.movedown();
 			});
-			$("#menuMoveEnd").live("click", function() {
+			$("#menuMoveEnd").on("click", function() {
 				YAAW.contextmenu.moveend();
 			});
-			$("#menuRestart").live("click", function() {
+			$("#menuRestart").on("click", function() {
 				YAAW.contextmenu.restart();
 			});
-			$("#menuStart").live("click", function() {
+			$("#menuStart").on("click", function() {
 				YAAW.contextmenu.unpause();
 			});
-			$("#menuPause").live("click", function() {
+			$("#menuPause").on("click", function() {
 				YAAW.contextmenu.pause();
 			});
-			$("#menuRemove").live("click", function() {
+			$("#menuRemove").on("click", function() {
 				YAAW.contextmenu.remove();
 			});
 
 			$("[rel=tooltip]").tooltip({"placement": "bottom"});
 
-			$(".task .select-box").live("click", function() {
+			$(".task .select-box").on("click", function() {
 				YAAW.tasks.toggle($(this).parents(".task"));
 				YAAW.tasks.check_select();
 			});
 
-			$(".task .task-name > span").live("click", function() {
+			$(".task .task-name > span").on("click", function() {
 				var task = $(this).parents(".task");
 				if (task.hasClass("info-open")) {
 					YAAW.tasks.info_close();
@@ -151,7 +151,7 @@ var YAAW = (function() {
 				$("#ati-out").parents(".control-group").val("").toggle();
 			});
 
-			$("#ib-files .ib-file-title, #ib-files .select-box").live("click", function() {
+			$("#ib-files .ib-file-title, #ib-files .select-box").on("click", function() {
 				if ($(this).parent().find(".select-box:first").hasClass("icon-ok")) {
 					$(this).parent().find(".select-box").removeClass("icon-ok");
 				} else {
@@ -159,7 +159,7 @@ var YAAW = (function() {
 				}
 			});
 
-			$("#ib-file-save").live("click", function() {
+			$("#ib-file-save").on("click", function() {
 				var indexes = [];
 				$("#ib-files .select-box.icon-ok[data-index]").each(function(i, n) {
 					indexes.push(n.getAttribute("data-index"));
@@ -174,16 +174,16 @@ var YAAW = (function() {
 				};
 			});
 
-			$("#ib-options-a").live("click", function() {
+			$("#ib-options-a").on("click", function() {
 				ARIA2.get_options($(".info-box").attr("data-gid"));
 			});
 
-			$("#ib-peers-a").live("click", function() {
+			$("#ib-peers-a").on("click", function() {
 				ARIA2.get_peers($(".info-box").attr("data-gid"));
 			});
 
 			var active_task_allowed_options = ["max-download-limit", "max-upload-limit"];
-			$("#ib-options-save").live("click", function() {
+			$("#ib-options-save").on("click", function() {
 				var options = {};
 				var gid = $(this).parents(".info-box").attr("data-gid")
 				var status = $("#task-gid-"+gid).attr("data-status");
@@ -735,7 +735,7 @@ var YAAW = (function() {
 
 		contextmenu: {
 			init: function() {
-				$(".task").live("contextmenu", function(ev) {
+				$(".task").on("contextmenu", function(ev) {
 					var contextmenu_position_y = ev.clientY
 					var contextmenu_position_x = ev.clientX;
 					if ($(window).height() - ev.clientY < 200) {
@@ -767,7 +767,7 @@ var YAAW = (function() {
 						$(".task-pause").show();
 					}
 					return false;
-				}).live("mouseout", function(ev) {
+				}).on("mouseout", function(ev) {
 					// toElement is not available in Firefox, use relatedTarget instead.
 					var enteredElement = ev.toElement || ev.relatedTarget;
 					if ($.contains(this, enteredElement) ||
