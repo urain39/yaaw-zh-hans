@@ -247,13 +247,13 @@ var YAAW = (function() {
 		tpl: {
 			init: function() {
 				var _this = this;
-				$("script[type='text/mustache-template']").each(function(i, n) {
+				$("script[type='text/ij2tpl-template']").each(function(i, n) {
 					var key = n.getAttribute("id").replace(/-tpl$/, "").replace(/-/g, "_");
 					_this[key] = function() {
-						var tpl = Mustache.compile($(n).text());
+						var tpl = IJ2TPL.parse($(n).text());
 						return function(view) {
 							view._v = _this.view;
-							return tpl(view);
+							return tpl.render(view);
 						};
 					}();
 				});

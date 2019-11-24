@@ -58,7 +58,7 @@
 			<div class="clearfix hide" id="main-control">
 				<div id="main-alert" class="hide">
 					<div id="main-alert-inline" class="alert">
-						<a href="javascript:;" id="btnClearAlert" class="close">×</a>
+						<a href="#!" id="btnClearAlert" class="close">×</a>
 						<span class="alert-msg">加载中</span>
 					</div>
 				</div>
@@ -68,14 +68,14 @@
 						<button id="select-all-btn" class="btn btn-default" title="全选">
 							<i class="select-box"></i>
 						</button>
-						<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;">
+						<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#!">
 							<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="javascript:;" id="btnSelectActive">选中下载中的任务</a></li>
-							<li><a href="javascript:;" id="btnSelectWaiting">选中等待中的任务</a></li>
-							<li><a href="javascript:;" id="btnSelectPaused">选中已暂停的任务</a></li>
-							<li><a href="javascript:;" id="btnSelectStopped">选中已停止的任务</a></li>
+							<li><a href="#!" id="btnSelectActive">选中下载中的任务</a></li>
+							<li><a href="#!" id="btnSelectWaiting">选中等待中的任务</a></li>
+							<li><a href="#!" id="btnSelectPaused">选中已暂停的任务</a></li>
+							<li><a href="#!" id="btnSelectStopped">选中已停止的任务</a></li>
 						</ul>
 					</div>
 				</div>
@@ -87,13 +87,13 @@
 						</a>
 					</div>
 					<div class="pull-left btn-group" id="do-all-btn">
-						<a href="javascript:;" id="btnStartAll" class="btn btn-default" id="unpause-all" title="开始所有任务">
+						<a href="#!" id="btnStartAll" class="btn btn-default" id="unpause-all" title="开始所有任务">
 							<i class="glyphicon glyphicon-forward"></i>
 						</a>
-						<a href="javascript:;" id="btnPauseAll" class="btn btn-default" id="pause-all" title="暂停所有任务">
+						<a href="#!" id="btnPauseAll" class="btn btn-default" id="pause-all" title="暂停所有任务">
 							<i class="glyphicon glyphicon-stop"></i>
 						</a>
-						<a href="javascript:;" id="btnRemoveFinished" class="btn btn-default" id="pure-all" title="删除已经完成或出错的任务">
+						<a href="#!" id="btnRemoveFinished" class="btn btn-default" id="pure-all" title="删除已经完成或出错的任务">
 							<i class="glyphicon glyphicon-trash"></i>
 						</a>
 					</div>
@@ -101,13 +101,13 @@
 
 				<div class="pull-left hide" id="selected-grp">
 					<div class="btn-group">
-						<a href="javascript:;" id="btnUnPause" class="btn btn-default" title="开始">
+						<a href="#!" id="btnUnPause" class="btn btn-default" title="开始">
 							<i class="glyphicon glyphicon-play"></i>
 						</a>
-						<a href="javascript:;" id="btnPause" class="btn btn-default" title="暂停">
+						<a href="#!" id="btnPause" class="btn btn-default" title="暂停">
 							<i class="glyphicon glyphicon-pause"></i>
 						</a>
-						<a href="javascript:;" id="btnRemove" class="btn btn-default" title="删除">
+						<a href="#!" id="btnRemove" class="btn btn-default" title="删除">
 							<i class="glyphicon glyphicon-remove"></i>
 						</a>
 					</div>
@@ -118,7 +118,7 @@
 
 				<div class="pull-right" id="other-grp">
 					<div class="btn-group">
-						<a href="javascript:;" class="btn btn-default" id="refresh-btn" title="刷新">
+						<a href="#!" class="btn btn-default" id="refresh-btn" title="刷新">
 							<i class="glyphicon glyphicon-refresh"></i> 刷新
 						</a>
 						<a class="btn btn-default" id="setting-btn" data-toggle="modal" href="#setting-modal" title="设置">
@@ -159,15 +159,15 @@
 		</div>
 
 		<ul id="task-contextmenu" class="dropdown-menu">
-			<li class="task-restart"><a href="javascript:;" id="menuRestart">重新开始</a></li>
-			<li class="task-start"><a href="javascript:;" id="menuStart">开始</a></li>
-			<li class="task-pause"><a href="javascript:;" id="menuPause">暂停</a></li>
-			<li><a href="javascript:;" id="menuRemove">删除</a></li>
+			<li class="task-restart"><a href="#!" id="menuRestart">重新开始</a></li>
+			<li class="task-start"><a href="#!" id="menuStart">开始</a></li>
+			<li class="task-pause"><a href="#!" id="menuPause">暂停</a></li>
+			<li><a href="#!" id="menuRemove">删除</a></li>
 			<li class="task-move divider"></li>
-			<li class="task-move"><a href="javascript:;" id="menuMoveTop">移动到最上面</a></li>
-			<li class="task-move"><a href="javascript:;" id="menuMoveUp">上移</a></li>
-			<li class="task-move"><a href="javascript:;" id="menuMoveDown">下移</a></li>
-			<li class="task-move"><a href="javascript:;" id="menuMoveEnd">移动到最下面</a></li>
+			<li class="task-move"><a href="#!" id="menuMoveTop">移动到最上面</a></li>
+			<li class="task-move"><a href="#!" id="menuMoveUp">上移</a></li>
+			<li class="task-move"><a href="#!" id="menuMoveDown">下移</a></li>
+			<li class="task-move"><a href="#!" id="menuMoveEnd">移动到最下面</a></li>
 		</ul>
 
 		<section class="modal hide fade" id="add-task-modal">
@@ -177,7 +177,7 @@
 		</div>
 		<div class="modal-body">
 			<div id="add-task-alert" class="alert alert-error hide">
-				<a href="javascript:;" id="closeAlert" class="close">×</a>
+				<a href="#!" id="closeAlert" class="close">×</a>
 				<strong>错误:</strong> <span class="alert-msg"></span>
 			</div>
 			<form id="add-task-uri">
@@ -191,8 +191,8 @@
 			<div id="add-task-option-wrap"></div>
 		</div>
 		<div class="modal-footer">
-			<a href="javascript:;" id="add-task-submit" class="btn btn-primary">添加</a>
-			<a href="javascript:;" id="add-task-clear" class="btn btn-default" data-dismiss="modal">取消</a>
+			<a href="#!" id="add-task-submit" class="btn btn-primary">添加</a>
+			<a href="#!" id="add-task-clear" class="btn btn-default" data-dismiss="modal">取消</a>
 		</div>
 		</section>
 
@@ -208,7 +208,7 @@
 						<label class="control-label" for="rpc-path">JSON-RPC Path</label>
 						<div class="controls">
 							<div class="input-append btn-group rpc-path-wrap">
-								<input type="text" class="input-xlarge" id="rpc-path"><a class="add-on btn btn-default dropdown-toggle" href="javascript:;" disabled><b class="caret"></b></a>
+								<input type="text" class="input-xlarge" id="rpc-path"><a class="add-on btn btn-default dropdown-toggle" href="#!" disabled><b class="caret"></b></a>
 							</div>
 						</div>
 					</div>
@@ -249,8 +249,8 @@
 			</div>
 		</div>
 		<div class="modal-footer">
-			<a href="javascript:;" id="saveSettings" class="btn btn-success">保存</a>
-			<a href="javascript:;" class="btn btn-default" data-dismiss="modal">取消</a>
+			<a href="#!" id="saveSettings" class="btn btn-success">保存</a>
+			<a href="#!" class="btn btn-default" data-dismiss="modal">取消</a>
 		</div>
 		</section>
 
@@ -267,81 +267,80 @@
 			</div>
 		</footer>
 		<div id="night-mode" class="hide"></div>
-		<script id="global-speed-tpl" type="text/mustache-template">
-			<i class="glyphicon glyphicon-download"></i> <span>{{#_v.format_size}}{{downloadSpeed}}{{/_v.format_size}}</span>/s
+		<script id="global-speed-tpl" type="text/ij2tpl-template">
+			<i class="glyphicon glyphicon-download"></i> <span>{?_v.format_size}{downloadSpeed}{/_v.format_size}</span>/s
 				/
-			<i class="glyphicon glyphicon-upload"></i>  <span>{{#_v.format_size}}{{uploadSpeed}}{{/_v.format_size}}</span>/s
+			<i class="glyphicon glyphicon-upload"></i>  <span>{?_v.format_size}{uploadSpeed}{/_v.format_size}</span>/s
 		</script>
 
-		<script id="active-task-tpl" type="text/mustache-template">
-			{{#tasks}}
-			<li class="task" id="task-gid-{{gid}}" data-status="{{status}}" data-gid="{{gid}}">
+		<script id="active-task-tpl" type="text/ij2tpl-template">
+			{?tasks}
+			<li class="task" id="task-gid-{gid}" data-status="{status}" data-gid="{gid}">
 				<div class="left-area">
 					<div class="task-name">
 						<i class="select-box"></i>
-						<span title="{{title}}">{{title}}</span>
+						<span title="{title}">{title}</span>
 					</div>
 					<div class="task-info">
-						<span class="task-status" title="{{#_v.status_text}}{{status}}{{/_v.status_text}}{{#_v.error_msg}}{{errorCode}}{{/_v.error_msg}}">
-							<i class="{{#_v.status_icon}}{{status}}{{/_v.status_icon}}"></i>
+						<span class="task-status" title="{?_v.status_text}{status}{/_v.status_text}{?_v.error_msg}{errorCode}{/_v.error_msg}">
+							<i class="{?_v.status_icon}{status}{/_v.status_icon}"></i>
 						</span>
-						<span>{{#_v.format_size}}{{completedLength}}{{/_v.format_size}} / {{#_v.format_size}}{{totalLength}}{{/_v.format_size}}</span>
-						{{#uploadLength}}<span>(已上传 {{#_v.format_size}}{{uploadLength}}{{/_v.format_size}})</span>{{/uploadLength}}
-						{{#eta}}<span>剩余时间: {{#_v.format_time}}{{eta}}{{/_v.format_time}}</span>{{/eta}}
+						<span>{?_v.format_size}{completedLength}{/_v.format_size} / {?_v.format_size}{totalLength}{/_v.format_size}</span>
+						{?uploadLength}<span>(已上传 {?_v.format_size}{uploadLength}{/_v.format_size})</span>{/uploadLength}
+						{?eta}<span>剩余时间: {?_v.format_time}{eta}{/_v.format_time}</span>{/eta}
 					</div>
 				</div>
 				<div class="right-area">
 					<div class="progress">
-							<div class="bar" style="width:{{progress}}%;"> </div>
-							<div class="bar tex">{{progress}}%</div>
+							<div class="bar" style="width:{progress}%;"> </div>
+							<div class="bar tex">{progress}%</div>
 					</div>
 					<div class="progress-info">
-						{{#downloadSpeed}}<span class="download-speed"><i class="glyphicon glyphicon-download"></i> {{#_v.format_size}}{{downloadSpeed}}{{/_v.format_size}}/s</span>{{/downloadSpeed}}
-						{{#uploadSpeed}}<span class="upload-speed"><i class="glyphicon glyphicon-upload"></i> {{#_v.format_size}}{{uploadSpeed}}{{/_v.format_size}}/s</span>{{/uploadSpeed}}
-						{{#connections}}<span class="seeders"><i class="glyphicon glyphicon-signal" title="连接数"></i> {{connections}}</span>{{/connections}}
-						{{#numSeeders}}<span class="seeders"><i class="glyphicon glyphicon-magnet" title="做种数"></i> {{numSeeders}}</span>{{/numSeeders}}
+						{?downloadSpeed}<span class="download-speed"><i class="glyphicon glyphicon-download"></i> {?_v.format_size}{downloadSpeed}{/_v.format_size}/s</span>{/downloadSpeed}
+						{?uploadSpeed}<span class="upload-speed"><i class="glyphicon glyphicon-upload"></i> {?_v.format_size}{uploadSpeed}{/_v.format_size}/s</span>{/uploadSpeed}
+						{?connections}<span class="seeders"><i class="glyphicon glyphicon-signal" title="连接数"></i> {connections}</span>{/connections}
+						{?numSeeders}<span class="seeders"><i class="glyphicon glyphicon-magnet" title="做种数"></i> {numSeeders}</span>{/numSeeders}
 					</div>
 				</div>
 			</li>
-			{{/tasks}}
-			{{^tasks}}
+			{*tasks}
 			<li>
 				<div class="empty-tasks">
 					<strong>没有正在下载的任务</strong>
 				</div>
 			</li>
-			{{/tasks}}
+			{/tasks}
 		</script>
 
-		<script id="other-task-tpl" type="text/mustache-template">
-			{{#tasks}}
-			<li class="task" id="task-gid-{{gid}}" data-status="{{status}}" data-gid="{{gid}}" data-infohash="{{infoHash}}">
+		<script id="other-task-tpl" type="text/ij2tpl-template">
+			{?tasks}
+			<li class="task" id="task-gid-{gid}" data-status="{status}" data-gid="{gid}" data-infohash="{infoHash}">
 				<div class="left-area">
 					<div class="task-name">
 						<i class="select-box"></i>
-						<span title="{{title}}">{{title}}</span>
+						<span title="{title}">{title}</span>
 					</div>
 				</div>
 				<div class="right-area">
 					<div class="task-info pull-left">
-						<span class="task-status" title="{{#_v.status_text}}{{status}}{{/_v.status_text}}{{#_v.error_msg}}{{errorCode}}{{/_v.error_msg}}"><i class="{{#_v.status_icon}}{{status}}{{/_v.status_icon}}"></i></span>
-						<span>{{#_v.format_size}}{{totalLength}}{{/_v.format_size}}</span>
-						{{#uploadLength}}<span>(up {{#_v.format_size}}{{uploadLength}}{{/_v.format_size}}){{/uploadLength}}
+						<span class="task-status" title="{?_v.status_text}{status}{/_v.status_text}{?_v.error_msg}{errorCode}{/_v.error_msg}"><i class="{?_v.status_icon}{status}{/_v.status_icon}"></i></span>
+						<span>{?_v.format_size}{totalLength}{/_v.format_size}</span>
+						{?uploadLength}<span>(up {?_v.format_size}{uploadLength}{/_v.format_size}){/uploadLength}
 					</div>
 					<div class="pull-right">
 						<div class="progress">
-							<div class="bar" style="width:{{progress}}%;"> </div>
-							<div class="bar tex">{{progress}}%</div>
+							<div class="bar" style="width:{progress}%;"> </div>
+							<div class="bar tex">{progress}%</div>
 						</div>
 					</div>
 					<div class="clearfix"></div>
 				</div>
 			</li>
-			{{/tasks}}
+			{/tasks}
 		</script>
 
-		<script id="info-box-tpl" type="text/mustache-template">
-			<div class="info-box" data-gid="{{gid}}">
+		<script id="info-box-tpl" type="text/ij2tpl-template">
+			<div class="info-box" data-gid="{gid}">
 				<div class="tabbable tabs-left">
 					<ul class="nav nav-tabs">
 						<li class="active"><a href="#ib-status" data-toggle="tab">状态</a></li>
@@ -364,55 +363,55 @@
 			</div>
 		</script>
 
-		<script id="ib-status-tpl" type="text/mustache-template">
+		<script id="ib-status-tpl" type="text/ij2tpl-template">
 			<ul>
-				{{#uris}}<li><strong>下载链接: </strong><a target=_blank href="{{.}}">{{.}}</a>{{/uris}}
-				{{#infoHash}}<li><strong>磁力链接: </strong><a target=_blank href="magnet:?xt=urn:btih:{{infoHash}}">magnet:?xt=urn:btih:{{infoHash}}</a></li>{{/infoHash}}
-				<li><strong>任务大小: </strong>{{#_v.format_size}}{{totalLength}}{{/_v.format_size}} ({{#_v.format_size}}{{pieceLength}}{{/_v.format_size}} × {{numPieces}})</li>
-				<li><strong>任务状态: </strong>{{#_v.status_text}}{{status}}{{/_v.status_text}}{{#_v.error_msg}}{{errorCode}}{{/_v.error_msg}}</li>
-				<li><strong>保存路径: </strong>{{dir}}</li>
-				{{#bittorrent}}
-					{{#creationDate}}<li><strong>发布时间: </strong>{{#_v.format_date}}{{creationDate}}{{/_v.format_date}}</li>{{/creationDate}}
-					{{#comment}}<li><strong>种子注释: </strong>{{comment}}</li>{{/comment}}
-				{{/bittorrent}}
-				<li class="bitfield"><strong>文件区块: </strong>{{#_v.bitfield}}{{bitfield}}{{/_v.bitfield}}</li>
+				{?uris}<li><strong>下载链接: </strong><a target=_blank href="{.}">{.}</a>{/uris}
+				{?infoHash}<li><strong>磁力链接: </strong><a target=_blank href="magnet:?xt=urn:btih:{infoHash}">magnet:?xt=urn:btih:{infoHash}</a></li>{/infoHash}
+				<li><strong>任务大小: </strong>{?_v.format_size}{totalLength}{/_v.format_size} ({?_v.format_size}{pieceLength}{/_v.format_size} × {numPieces})</li>
+				<li><strong>任务状态: </strong>{?_v.status_text}{status}{/_v.status_text}{?_v.error_msg}{errorCode}{/_v.error_msg}</li>
+				<li><strong>保存路径: </strong>{dir}</li>
+				{?bittorrent}
+					{?creationDate}<li><strong>发布时间: </strong>{?_v.format_date}{creationDate}{/_v.format_date}</li>{/creationDate}
+					{?comment}<li><strong>种子注释: </strong>{comment}</li>{/comment}
+				{/bittorrent}
+				<li class="bitfield"><strong>文件区块: </strong>{?_v.bitfield}{bitfield}{/_v.bitfield}</li>
 			</ul>
 		</script>
 
-		<script id="file-tpl" type="text/mustache-template">
+		<script id="file-tpl" type="text/ij2tpl-template">
 			<li>
-				<i class="select-box{{#selected}} icon-ok{{/selected}}" data-index="{{index}}"></i>
-				<span class="ib-file-title">{{relative_title}}</span>
-				<span class="ib-file-size"> {{#_v.format_size}}{{completedLength}}{{/_v.format_size}} / {{#_v.format_size}}{{length}}{{/_v.format_size}} ({{progress}}%)</span>
+				<i class="select-box{?selected} icon-ok{/selected}" data-index="{index}"></i>
+				<span class="ib-file-title">{relative_title}</span>
+				<span class="ib-file-size"> {?_v.format_size}{completedLength}{/_v.format_size} / {?_v.format_size}{length}{/_v.format_size} ({progress}%)</span>
 			</li>
 		</script>
 
-		<script id="ib-options-tpl" type="text/mustache-template">
+		<script id="ib-options-tpl" type="text/ij2tpl-template">
 			<form id="ib-options-form" class="form-horizontal" onsubmit="false">
 				<ul>
-					<li><span>下载限速:</span><input name="max-download-limit" class="active-allowed" value="{{max-download-limit}}" /></li>
-					<li><span>上传限速:</span><input name="max-upload-limit" class="active-allowed" value="{{max-upload-limit}}" /></li>
-					<li><span>分块数量:</span><input name="split" value="{{split}}" /></li>
-					<li><span>分块大小:</span><input name="min-split-size" value="{{min-split-size}}" /></li>
-					<li><span>最大连接数:</span><input name="max-connection-per-server" value="{{max-connection-per-server}}" /></li>
+					<li><span>下载限速:</span><input name="max-download-limit" class="active-allowed" value="{max-download-limit}" /></li>
+					<li><span>上传限速:</span><input name="max-upload-limit" class="active-allowed" value="{max-upload-limit}" /></li>
+					<li><span>分块数量:</span><input name="split" value="{split}" /></li>
+					<li><span>分块大小:</span><input name="min-split-size" value="{min-split-size}" /></li>
+					<li><span>最大连接数:</span><input name="max-connection-per-server" value="{max-connection-per-server}" /></li>
 					<li id="ib-options-btn"><div><button id="ib-options-save" class="btn btn-primary">保存</button></div></li>
 				</ul>
 			</form>
 		</script>
 
-		<script id="ib-peers-tpl" type="text/mustache-template">
-			{{#.}}
+		<script id="ib-peers-tpl" type="text/ij2tpl-template">
+			{?.}
 			<tr>
-				<td>{{ip}}:{{port}}</td>
-				<td>{{#_v.format_peerid}}{{peerId}}{{/_v.format_peerid}}</td>
-				<td>{{#_v.bitfield_to_percent}}{{bitfield}}{{/_v.bitfield_to_percent}}%</td>
-				<td>{{#_v.format_size}}{{downloadSpeed}}{{/_v.format_size}}/s</td>
-				<td>{{#_v.format_size}}{{uploadSpeed}}{{/_v.format_size}}/s</td>
+				<td>{ip}:{port}</td>
+				<td>{?_v.format_peerid}{peerId}{/_v.format_peerid}</td>
+				<td>{?_v.bitfield_to_percent}{bitfield}{/_v.bitfield_to_percent}%</td>
+				<td>{?_v.format_size}{downloadSpeed}{/_v.format_size}/s</td>
+				<td>{?_v.format_size}{uploadSpeed}{/_v.format_size}/s</td>
 			</tr>
-			{{/.}}
+			{/.}
 		</script>
 
-		<script id="other-task-empty" type="text/mustache-template">
+		<script id="other-task-empty" type="text/ij2tpl-template">
 			<li>
 				<div class="empty-tasks">
 					<strong>没有需要确认的任务</strong>
@@ -420,7 +419,7 @@
 			</li>
 		</script>
 
-		<script id="add-task-option-tpl" type="text/mustache-template">
+		<script id="add-task-option-tpl" type="text/ij2tpl-template">
 			<hr />
 			<form id="add-task-option" class="form-horizontal" onsubmit="$('#add-task-uri').submit();return false">
 				<input type="submit" style="position:fixed;top:0;visibility:hidden"/>
@@ -440,7 +439,7 @@
 				<div class="control-group half">
 					<div class="controls">
 						<label class="checkbox">
-							<input type="checkbox" name="pause" class="input-save" {{#pause}}checked{{/pause}} />
+							<input type="checkbox" name="pause" class="input-save" {?pause}checked{/pause} />
 							添加后暂停任务
 						</label>
 					</div>
@@ -449,7 +448,7 @@
 				<div class="control-group half">
 					<div class="controls">
 						<label class="checkbox" title="有规则的下载链接">
-							<input type="checkbox" name="parameterized-uri" class="input-save" {{#parameterized-uri}}checked{{/parameterized-uri}} />
+							<input type="checkbox" name="parameterized-uri" class="input-save" {?parameterized-uri}checked{/parameterized-uri} />
 							参数化链接支持
 						</label>
 					</div>
@@ -459,62 +458,62 @@
 				<div class="control-group half">
 					<label class="control-label" for="ati-split">分块数量</label>
 					<div class="controls">
-						<input id="ati-split" class="input-small input-save" name="split" value="{{split}}" />
+						<input id="ati-split" class="input-small input-save" name="split" value="{split}" />
 					</div>
 				</div>
 				<div class="control-group half">
 					<label class="control-label" for="ati-cps" title="同一服务器最大连接数">最大连接数</label>
 					<div class="controls">
-						<input id="ati-cps" class="input-small input-save" name="max-connection-per-server" value="{{max-connection-per-server}}" />
+						<input id="ati-cps" class="input-small input-save" name="max-connection-per-server" value="{max-connection-per-server}" />
 					</div>
 				</div>
 				<div class="control-group half">
 					<label class="control-label" for="ati-sr">种子分享率</label>
 					<div class="controls">
-						<input id="ati-sr" class="input-small input-save" name="seed-ratio" value="{{seed-ratio}}" />
+						<input id="ati-sr" class="input-small input-save" name="seed-ratio" value="{seed-ratio}" />
 					</div>
 				</div>
 				<div class="control-group half">
 					<label class="control-label" for="ati-st">做种时间</label>
 					<div class="controls">
-						<input id="ati-st" class="input-small input-save" name="seed-time" value="{{seed-time}}" />
+						<input id="ati-st" class="input-small input-save" name="seed-time" value="{seed-time}" />
 					</div>
 				</div>
 				<div class="clearfix"></div>
 				<div class="control-group">
 					<label class="control-label" for="ati-header">请求头</label>
 					<div class="controls">
-						<textarea id="ati-header" class="input-xlarge input-save" name="header" warp="off" placeholder="HTTP请求头, 作为验证需要, 一般不需要填写">{{header}}</textarea>
+						<textarea id="ati-header" class="input-xlarge input-save" name="header" warp="off" placeholder="HTTP请求头, 作为验证需要, 一般不需要填写">{header}</textarea>
 					</div>
 				</div>
 			</form>
 		</script>
 
-		<script id="aria2-global-setting-tpl" type="text/mustache-template">
+		<script id="aria2-global-setting-tpl" type="text/ij2tpl-template">
 			<hr />
 			<form id="aria2-gs-form" class="form-horizontal" onsubmit="false">
 				<div class="control-group half">
 					<label class="control-label" for="gsi-dl">全局下载限速</label>
 					<div class="controls">
-						<input id="gsi-dl" name="max-overall-download-limit" class="input-small" value="{{#_v.format_size_0}}{{max-overall-download-limit}}{{/_v.format_size_0}}" />
+						<input id="gsi-dl" name="max-overall-download-limit" class="input-small" value="{?_v.format_size_0}{max-overall-download-limit}{/_v.format_size_0}" />
 					</div>
 				</div>
 				<div class="control-group half">
 					<label class="control-label" for="gsi-ul">全局上传限速</label>
 					<div class="controls">
-						<input id="gsi-ul" name="max-overall-upload-limit" class="input-small" value="{{#_v.format_size_0}}{{max-overall-upload-limit}}{{/_v.format_size_0}}" />
+						<input id="gsi-ul" name="max-overall-upload-limit" class="input-small" value="{?_v.format_size_0}{max-overall-upload-limit}{/_v.format_size_0}" />
 					</div>
 				</div>
 				<div class="control-group half">
 					<label class="control-label" for="gsi-cd">最多同时任务数</label>
 					<div class="controls">
-						<input id="gsi-cd" name="max-concurrent-downloads" class="input-small" value="{{max-concurrent-downloads}}" />
+						<input id="gsi-cd" name="max-concurrent-downloads" class="input-small" value="{max-concurrent-downloads}" />
 					</div>
 				</div>
 				<div class="control-group half">
 					<label class="control-label" for="gsi-mss">最小分块大小</label>
 					<div class="controls">
-						<input id="gsi-mss" name="min-split-size" class="input-small" value="{{#_v.format_size_0}}{{min-split-size}}{{/_v.format_size_0}}" />
+						<input id="gsi-mss" name="min-split-size" class="input-small" value="{?_v.format_size_0}{min-split-size}{/_v.format_size_0}" />
 					</div>
 				</div>
 				<div class="clearfix"></div>
@@ -522,13 +521,13 @@
 				<div class="control-group">
 					<label class="control-label" for="gsi-ua">客户端伪装</label>
 					<div class="controls">
-						<input id="gsi-ua" name="user-agent" class="input-xlarge" value="{{user-agent}}" />
+						<input id="gsi-ua" name="user-agent" class="input-xlarge" value="{user-agent}" />
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="gsi-dir">默认下载目录</label>
 					<div class="controls">
-						<input id="gsi-dir" name="dir" class="input-xlarge" value="{{dir}}" disabled />
+						<input id="gsi-dir" name="dir" class="input-xlarge" value="{dir}" disabled />
 					</div>
 				</div>
 			</form>
@@ -539,7 +538,7 @@
 		<script src="js/jquery.jsonrpc.min.js"></script>
 		<script src="js/jquery.Storage.min.js"></script>
 		<script src="js/jquery.base64.min.js"></script>
-		<script src="js/mustache.min.js"></script>
+		<script src="js/ij2tpl.min.js"></script>
 		<script src="js/peerid.min.js"></script>
 		<script src="js/aria2.js"></script>
 		<script src="js/yaaw.js"></script>
