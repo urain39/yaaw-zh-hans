@@ -268,13 +268,13 @@
 		</footer>
 		<div id="night-mode" class="hide"></div>
 		<script id="global-speed-tpl" type="text/mustache-template">
-			<i class="glyphicon glyphicon-download"></i> <span>{{#_v.format_size}}{{downloadSpeed}}{{/_v.format_size}}</span>/s
+			<i class="glyphicon glyphicon-download"></i> <span>{{?_v.format_size}}{{downloadSpeed}}{{/_v.format_size}}</span>/s
 				/
-			<i class="glyphicon glyphicon-upload"></i>  <span>{{#_v.format_size}}{{uploadSpeed}}{{/_v.format_size}}</span>/s
+			<i class="glyphicon glyphicon-upload"></i>  <span>{{?_v.format_size}}{{uploadSpeed}}{{/_v.format_size}}</span>/s
 		</script>
 
 		<script id="active-task-tpl" type="text/mustache-template">
-			{{#tasks}}
+			{{?tasks}}
 			<li class="task" id="task-gid-{{gid}}" data-status="{{status}}" data-gid="{{gid}}">
 				<div class="left-area">
 					<div class="task-name">
@@ -282,12 +282,12 @@
 						<span title="{{title}}">{{title}}</span>
 					</div>
 					<div class="task-info">
-						<span class="task-status" title="{{#_v.status_text}}{{status}}{{/_v.status_text}}{{#_v.error_msg}}{{errorCode}}{{/_v.error_msg}}">
-							<i class="{{#_v.status_icon}}{{status}}{{/_v.status_icon}}"></i>
+						<span class="task-status" title="{{?_v.status_text}}{{status}}{{/_v.status_text}}{{?_v.error_msg}}{{errorCode}}{{/_v.error_msg}}">
+							<i class="{{?_v.status_icon}}{{status}}{{/_v.status_icon}}"></i>
 						</span>
-						<span>{{#_v.format_size}}{{completedLength}}{{/_v.format_size}} / {{#_v.format_size}}{{totalLength}}{{/_v.format_size}}</span>
-						{{#uploadLength}}<span>(已上传 {{#_v.format_size}}{{uploadLength}}{{/_v.format_size}})</span>{{/uploadLength}}
-						{{#eta}}<span>剩余时间: {{#_v.format_time}}{{eta}}{{/_v.format_time}}</span>{{/eta}}
+						<span>{{?_v.format_size}}{{completedLength}}{{/_v.format_size}} / {{?_v.format_size}}{{totalLength}}{{/_v.format_size}}</span>
+						{{?uploadLength}}<span>(已上传 {{?_v.format_size}}{{uploadLength}}{{/_v.format_size}})</span>{{/uploadLength}}
+						{{?eta}}<span>剩余时间: {{?_v.format_time}}{{eta}}{{/_v.format_time}}</span>{{/eta}}
 					</div>
 				</div>
 				<div class="right-area">
@@ -296,15 +296,15 @@
 							<div class="bar tex">{{progress}}%</div>
 					</div>
 					<div class="progress-info">
-						{{#downloadSpeed}}<span class="download-speed"><i class="glyphicon glyphicon-download"></i> {{#_v.format_size}}{{downloadSpeed}}{{/_v.format_size}}/s</span>{{/downloadSpeed}}
-						{{#uploadSpeed}}<span class="upload-speed"><i class="glyphicon glyphicon-upload"></i> {{#_v.format_size}}{{uploadSpeed}}{{/_v.format_size}}/s</span>{{/uploadSpeed}}
-						{{#connections}}<span class="seeders"><i class="glyphicon glyphicon-signal" title="连接数"></i> {{connections}}</span>{{/connections}}
-						{{#numSeeders}}<span class="seeders"><i class="glyphicon glyphicon-magnet" title="做种数"></i> {{numSeeders}}</span>{{/numSeeders}}
+						{{?downloadSpeed}}<span class="download-speed"><i class="glyphicon glyphicon-download"></i> {{?_v.format_size}}{{downloadSpeed}}{{/_v.format_size}}/s</span>{{/downloadSpeed}}
+						{{?uploadSpeed}}<span class="upload-speed"><i class="glyphicon glyphicon-upload"></i> {{?_v.format_size}}{{uploadSpeed}}{{/_v.format_size}}/s</span>{{/uploadSpeed}}
+						{{?connections}}<span class="seeders"><i class="glyphicon glyphicon-signal" title="连接数"></i> {{connections}}</span>{{/connections}}
+						{{?numSeeders}}<span class="seeders"><i class="glyphicon glyphicon-magnet" title="做种数"></i> {{numSeeders}}</span>{{/numSeeders}}
 					</div>
 				</div>
 			</li>
 			{{/tasks}}
-			{{^tasks}}
+			{{!tasks}}
 			<li>
 				<div class="empty-tasks">
 					<strong>没有正在下载的任务</strong>
@@ -314,7 +314,7 @@
 		</script>
 
 		<script id="other-task-tpl" type="text/mustache-template">
-			{{#tasks}}
+			{{?tasks}}
 			<li class="task" id="task-gid-{{gid}}" data-status="{{status}}" data-gid="{{gid}}" data-infohash="{{infoHash}}">
 				<div class="left-area">
 					<div class="task-name">
@@ -324,9 +324,9 @@
 				</div>
 				<div class="right-area">
 					<div class="task-info pull-left">
-						<span class="task-status" title="{{#_v.status_text}}{{status}}{{/_v.status_text}}{{#_v.error_msg}}{{errorCode}}{{/_v.error_msg}}"><i class="{{#_v.status_icon}}{{status}}{{/_v.status_icon}}"></i></span>
-						<span>{{#_v.format_size}}{{totalLength}}{{/_v.format_size}}</span>
-						{{#uploadLength}}<span>(up {{#_v.format_size}}{{uploadLength}}{{/_v.format_size}}){{/uploadLength}}
+						<span class="task-status" title="{{?_v.status_text}}{{status}}{{/_v.status_text}}{{?_v.error_msg}}{{errorCode}}{{/_v.error_msg}}"><i class="{{?_v.status_icon}}{{status}}{{/_v.status_icon}}"></i></span>
+						<span>{{?_v.format_size}}{{totalLength}}{{/_v.format_size}}</span>
+						{{?uploadLength}}<span>(up {{?_v.format_size}}{{uploadLength}}{{/_v.format_size}}){{/uploadLength}}
 					</div>
 					<div class="pull-right">
 						<div class="progress">
@@ -366,24 +366,24 @@
 
 		<script id="ib-status-tpl" type="text/mustache-template">
 			<ul>
-				{{#uris}}<li><strong>下载链接: </strong><a target=_blank href="{{.}}">{{.}}</a>{{/uris}}
-				{{#infoHash}}<li><strong>磁力链接: </strong><a target=_blank href="magnet:?xt=urn:btih:{{infoHash}}">magnet:?xt=urn:btih:{{infoHash}}</a></li>{{/infoHash}}
-				<li><strong>任务大小: </strong>{{#_v.format_size}}{{totalLength}}{{/_v.format_size}} ({{#_v.format_size}}{{pieceLength}}{{/_v.format_size}} × {{numPieces}})</li>
-				<li><strong>任务状态: </strong>{{#_v.status_text}}{{status}}{{/_v.status_text}}{{#_v.error_msg}}{{errorCode}}{{/_v.error_msg}}</li>
+				{{?uris}}<li><strong>下载链接: </strong><a target=_blank href="{{.}}">{{.}}</a>{{/uris}}
+				{{?infoHash}}<li><strong>磁力链接: </strong><a target=_blank href="magnet:?xt=urn:btih:{{infoHash}}">magnet:?xt=urn:btih:{{infoHash}}</a></li>{{/infoHash}}
+				<li><strong>任务大小: </strong>{{?_v.format_size}}{{totalLength}}{{/_v.format_size}} ({{?_v.format_size}}{{pieceLength}}{{/_v.format_size}} × {{numPieces}})</li>
+				<li><strong>任务状态: </strong>{{?_v.status_text}}{{status}}{{/_v.status_text}}{{?_v.error_msg}}{{errorCode}}{{/_v.error_msg}}</li>
 				<li><strong>保存路径: </strong>{{dir}}</li>
-				{{#bittorrent}}
-					{{#creationDate}}<li><strong>发布时间: </strong>{{#_v.format_date}}{{creationDate}}{{/_v.format_date}}</li>{{/creationDate}}
-					{{#comment}}<li><strong>种子注释: </strong>{{comment}}</li>{{/comment}}
+				{{?bittorrent}}
+					{{?creationDate}}<li><strong>发布时间: </strong>{{?_v.format_date}}{{creationDate}}{{/_v.format_date}}</li>{{/creationDate}}
+					{{?comment}}<li><strong>种子注释: </strong>{{comment}}</li>{{/comment}}
 				{{/bittorrent}}
-				<li class="bitfield"><strong>文件区块: </strong>{{#_v.bitfield}}{{bitfield}}{{/_v.bitfield}}</li>
+				<li class="bitfield"><strong>文件区块: </strong>{{?_v.bitfield}}{{bitfield}}{{/_v.bitfield}}</li>
 			</ul>
 		</script>
 
 		<script id="file-tpl" type="text/mustache-template">
 			<li>
-				<i class="select-box{{#selected}} icon-ok{{/selected}}" data-index="{{index}}"></i>
+				<i class="select-box{{?selected}} icon-ok{{/selected}}" data-index="{{index}}"></i>
 				<span class="ib-file-title">{{relative_title}}</span>
-				<span class="ib-file-size"> {{#_v.format_size}}{{completedLength}}{{/_v.format_size}} / {{#_v.format_size}}{{length}}{{/_v.format_size}} ({{progress}}%)</span>
+				<span class="ib-file-size"> {{?_v.format_size}}{{completedLength}}{{/_v.format_size}} / {{?_v.format_size}}{{length}}{{/_v.format_size}} ({{progress}}%)</span>
 			</li>
 		</script>
 
@@ -401,13 +401,13 @@
 		</script>
 
 		<script id="ib-peers-tpl" type="text/mustache-template">
-			{{#.}}
+			{{?.}}
 			<tr>
 				<td>{{ip}}:{{port}}</td>
-				<td>{{#_v.format_peerid}}{{peerId}}{{/_v.format_peerid}}</td>
-				<td>{{#_v.bitfield_to_percent}}{{bitfield}}{{/_v.bitfield_to_percent}}%</td>
-				<td>{{#_v.format_size}}{{downloadSpeed}}{{/_v.format_size}}/s</td>
-				<td>{{#_v.format_size}}{{uploadSpeed}}{{/_v.format_size}}/s</td>
+				<td>{{?_v.format_peerid}}{{peerId}}{{/_v.format_peerid}}</td>
+				<td>{{?_v.bitfield_to_percent}}{{bitfield}}{{/_v.bitfield_to_percent}}%</td>
+				<td>{{?_v.format_size}}{{downloadSpeed}}{{/_v.format_size}}/s</td>
+				<td>{{?_v.format_size}}{{uploadSpeed}}{{/_v.format_size}}/s</td>
 			</tr>
 			{{/.}}
 		</script>
@@ -440,7 +440,7 @@
 				<div class="control-group half">
 					<div class="controls">
 						<label class="checkbox">
-							<input type="checkbox" name="pause" class="input-save" {{#pause}}checked{{/pause}} />
+							<input type="checkbox" name="pause" class="input-save" {{?pause}}checked{{/pause}} />
 							添加后暂停任务
 						</label>
 					</div>
@@ -449,7 +449,7 @@
 				<div class="control-group half">
 					<div class="controls">
 						<label class="checkbox" title="有规则的下载链接">
-							<input type="checkbox" name="parameterized-uri" class="input-save" {{#parameterized-uri}}checked{{/parameterized-uri}} />
+							<input type="checkbox" name="parameterized-uri" class="input-save" {{?parameterized-uri}}checked{{/parameterized-uri}} />
 							参数化链接支持
 						</label>
 					</div>
@@ -496,13 +496,13 @@
 				<div class="control-group half">
 					<label class="control-label" for="gsi-dl">全局下载限速</label>
 					<div class="controls">
-						<input id="gsi-dl" name="max-overall-download-limit" class="input-small" value="{{#_v.format_size_0}}{{max-overall-download-limit}}{{/_v.format_size_0}}" />
+						<input id="gsi-dl" name="max-overall-download-limit" class="input-small" value="{{?_v.format_size_0}}{{max-overall-download-limit}}{{/_v.format_size_0}}" />
 					</div>
 				</div>
 				<div class="control-group half">
 					<label class="control-label" for="gsi-ul">全局上传限速</label>
 					<div class="controls">
-						<input id="gsi-ul" name="max-overall-upload-limit" class="input-small" value="{{#_v.format_size_0}}{{max-overall-upload-limit}}{{/_v.format_size_0}}" />
+						<input id="gsi-ul" name="max-overall-upload-limit" class="input-small" value="{{?_v.format_size_0}}{{max-overall-upload-limit}}{{/_v.format_size_0}}" />
 					</div>
 				</div>
 				<div class="control-group half">
@@ -514,7 +514,7 @@
 				<div class="control-group half">
 					<label class="control-label" for="gsi-mss">最小分块大小</label>
 					<div class="controls">
-						<input id="gsi-mss" name="min-split-size" class="input-small" value="{{#_v.format_size_0}}{{min-split-size}}{{/_v.format_size_0}}" />
+						<input id="gsi-mss" name="min-split-size" class="input-small" value="{{?_v.format_size_0}}{{min-split-size}}{{/_v.format_size_0}}" />
 					</div>
 				</div>
 				<div class="clearfix"></div>
@@ -539,7 +539,7 @@
 		<script src="js/jquery.jsonrpc.min.js"></script>
 		<script src="js/jquery.Storage.min.js"></script>
 		<script src="js/jquery.base64.min.js"></script>
-		<script src="js/mustache.min.js"></script>
+		<script src="js/ij2tpl.min.js"></script>
 		<script src="js/peerid.min.js"></script>
 		<script src="js/aria2.js"></script>
 		<script src="js/yaaw.js"></script>
