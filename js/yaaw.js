@@ -247,12 +247,12 @@ var YAAW = (function() {
 		tpl: {
 			init: function() {
 				var _this = this;
+				IJ2TPL.setFilterMap(_this.view);
 				$("script[type='text/mustache-template']").each(function(i, n) {
 					var key = n.getAttribute("id").replace(/-tpl$/, "").replace(/-/g, "_");
 					_this[key] = function() {
 						var tpl = IJ2TPL.parse($(n).text(), '{{', '}}');
 						return function(view) {
-							IJ2TPL.setFilterMap(_this.view);
 							return tpl.render(view);
 						};
 					}();
@@ -345,14 +345,14 @@ var YAAW = (function() {
 
 				format_size: function(size) {
 					var format_text = ["B", "KiB", "MiB", "GiB", "TiB", ];
-					if (size === '') return '';
+					if (size==='') return '';
 					size = parseInt(size);
 					var i = 0;
 					while (size >= 1024) {
 						size /= 1024;
 						i++;
 					}
-					if (size==0) {
+					if (!size) {
 						return "0 KiB";
 					} else {
 						return size.toFixed(2)+" "+format_text[i];
@@ -361,14 +361,14 @@ var YAAW = (function() {
 
 				format_size_0: function(size) {
 					var format_text = ["B", "KiB", "MiB", "GiB", "TiB", ];
-					if (size === '') return '';
+					if (size==='') return '';
 					size = parseInt(size);
 					var i = 0;
 					while (size >= 1024) {
 						size /= 1024;
 						i++;
 					}
-					if (size==0) {
+					if (!size) {
 						return "0 KiB";
 					} else {
 						return size.toFixed(0)+" "+format_text[i];
