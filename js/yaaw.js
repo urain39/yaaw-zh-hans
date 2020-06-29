@@ -252,7 +252,7 @@ var YAAW = (function() {
 					_this[key] = function() {
 						var tpl = IJ2TPL.parse($(n).text(), '{{', '}}');
 						return function(view) {
-							view._v = _this.view;
+							IJ2TPL.setFilterMap(_this.view);
 							return tpl.render(view);
 						};
 					}();
@@ -303,154 +303,138 @@ var YAAW = (function() {
 			},
 
 			view: {
-				bitfield: function() {
+				bitfield: function(text) {
 					var graphic = "░▒▓█";
-					return function(text) {
-						var len = text.length;
-						var result = "";
-						for (var i=0; i<len; i++)
-							result += graphic[Math.floor(parseInt(text[i], 16)/4)] + "&#8203;";
-						return result;
-					};
+					var len = text.length;
+					var result = "";
+					for (var i=0; i<len; i++)
+						result += graphic[Math.floor(parseInt(text[i], 16)/4)] + "&#8203;";
+					return result;
 				},
 
-				bitfield_to_10: function() {
+				bitfield_to_10: function(text) {
 					var graphic = "░▒▓█";
-					return function(text) {
-						var len = text.length;
-						var part_len = Math.ceil(len/10);
-						var result = "";
-						for (var i=0; i<10; i++) {
-							p = 0;
-							for (var j=0; j<part_len; j++) {
-								if (i*part_len+j >= len)
-									p += 16;
-								else
-									p += parseInt(text[i*part_len+j], 16);
-							}
-							result += graphic[Math.floor(p/part_len/4)] + "&#8203;";
+					var len = text.length;
+					var part_len = Math.ceil(len/10);
+					var result = "";
+					for (var i=0; i<10; i++) {
+						p = 0;
+						for (var j=0; j<part_len; j++) {
+							if (i*part_len+j >= len)
+								p += 16;
+							else
+								p += parseInt(text[i*part_len+j], 16);
 						}
-						return result;
-					};
+						result += graphic[Math.floor(p/part_len/4)] + "&#8203;";
+					}
+					return result;
 				},
 
-				bitfield_to_percent: function() {
-					return function(text) {
-						var len = text.length - 1;
-						var p, one = 0;
-						for (var i=0; i<len; i++) {
-							p = parseInt(text[i], 16);
-							for (var j=0; j<4; j++) {
-								one += (p & 1);
-								p >>= 1;
-							}
+				bitfield_to_percent: function(text) {
+					var len = text.length - 1;
+					var p, one = 0;
+					for (var i=0; i<len; i++) {
+						p = parseInt(text[i], 16);
+						for (var j=0; j<4; j++) {
+							one += (p & 1);
+							p >>= 1;
 						}
-						return Math.floor(one/(4*len)*100).toString();
-					};
+					}
+					return Math.floor(one/(4*len)*100).toString();
 				},
 
-				format_size: function() {
+				format_size: function(size) {
 					var format_text = ["B", "KiB", "MiB", "GiB", "TiB", ];
-					return function(size) {
-						if (size === '') return '';
-						size = parseInt(size);
-						var i = 0;
-						while (size >= 1024) {
-							size /= 1024;
-							i++;
-						}
-						if (size==0) {
-							return "0 KiB";
-						} else {
-							return size.toFixed(2)+" "+format_text[i];
-						}
-					};
-				},
-
-				format_size_0: function() {
-					var format_text = ["B", "KiB", "MiB", "GiB", "TiB", ];
-					return function(size) {
-						if (size === '') return '';
-						size = parseInt(size);
-						var i = 0;
-						while (size >= 1024) {
-							size /= 1024;
-							i++;
-						}
-						if (size==0) {
-							return "0 KiB";
-						} else {
-							return size.toFixed(0)+" "+format_text[i];
-						}
-					};
-				},
-
-				format_time: function() {
-					var time_interval = [60, 60, 24];
-					var time_text = ["s", "m", "h"];
-					return function(time) {
-						if (time == Infinity) {
-							return "INF";
-						} else if (time == 0) {
-							return "0s";
-						}
-
-						time = Math.floor(time);
-						var i = 0;
-						var result = "";
-						while (time > 0 && i < 3) {
-							result = time % time_interval[i] + time_text[i] + result;
-							time = Math.floor(time/time_interval[i]);
-							i++;
-						}
-						if (time > 0) {
-							result = time + "d" + result;
-						}
-						return result;
-					};
-				},
-
-				format_date: function() {
-					return function(u) {
-						var d, t, _pad;
-						_pad = function(n) {
-							return (n < 10 ? "0" : "") + n;
-						};
-						d = new Date(isNaN(parseInt(u, 10)) ? 0 : parseInt(u, 10) * 1e3);
-						return [
-							[
-								_pad(d.getFullYear()),
-								_pad(d.getMonth() + 1),
-								_pad(d.getDate())
-							].join("-"),
-							[
-								_pad(d.getHours()),
-								_pad(d.getMinutes()),
-								_pad(d.getSeconds())
-							].join(":")
-						].join(" ");
-					};
-				},
-
-				format_peerid: function() {
-					return function(peerid) {
-						try {
-							var ret = window.format_peerid(peerid);
-							if (ret.client == 'unknown') throw 'unknown';
-							return ret.client+(ret.version ? '-'+ret.version : '');
-						} catch(e) {
-							if (peerid == '%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00')
-								return 'unknown';
-							var ret = unescape(peerid).split('-');
-							for (var i=0; i<ret.length; i++) {
-								if (ret[i].trim().length) return ret[i];
-							}
-							return 'unknown';
-						}
+					if (size === '') return '';
+					size = parseInt(size);
+					var i = 0;
+					while (size >= 1024) {
+						size /= 1024;
+						i++;
+					}
+					if (size==0) {
+						return "0 KiB";
+					} else {
+						return size.toFixed(2)+" "+format_text[i];
 					}
 				},
 
-				error_msg: function() {
+				format_size_0: function(size) {
+					var format_text = ["B", "KiB", "MiB", "GiB", "TiB", ];
+					if (size === '') return '';
+					size = parseInt(size);
+					var i = 0;
+					while (size >= 1024) {
+						size /= 1024;
+						i++;
+					}
+					if (size==0) {
+						return "0 KiB";
+					} else {
+						return size.toFixed(0)+" "+format_text[i];
+					}
+				},
+
+				format_time: function(time) {
+					var time_interval = [60, 60, 24];
+					var time_text = ["s", "m", "h"];
+					if (time == Infinity) {
+						return "INF";
+					} else if (time == 0) {
+						return "0s";
+					}
+
+					time = Math.floor(time);
+					var i = 0;
+					var result = "";
+					while (time > 0 && i < 3) {
+						result = time % time_interval[i] + time_text[i] + result;
+						time = Math.floor(time/time_interval[i]);
+						i++;
+					}
+					if (time > 0) {
+						result = time + "d" + result;
+					}
+					return result;
+				},
+
+				format_date: function(u) {
+					var d, t, _pad;
+					_pad = function(n) {
+						return (n < 10 ? "0" : "") + n;
+					};
+					d = new Date(isNaN(parseInt(u, 10)) ? 0 : parseInt(u, 10) * 1e3);
+					return [
+						[
+							_pad(d.getFullYear()),
+							_pad(d.getMonth() + 1),
+							_pad(d.getDate())
+						].join("-"),
+						[
+							_pad(d.getHours()),
+							_pad(d.getMinutes()),
+							_pad(d.getSeconds())
+						].join(":")
+					].join(" ");
+				},
+
+				format_peerid: function(peerid) {
+					try {
+						var ret = window.format_peerid(peerid);
+						if (ret.client == 'unknown') throw 'unknown';
+						return ret.client+(ret.version ? '-'+ret.version : '');
+					} catch(e) {
+						if (peerid == '%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00')
+							return 'unknown';
+						var ret = unescape(peerid).split('-');
+						for (var i=0; i<ret.length; i++) {
+							if (ret[i].trim().length) return ret[i];
+						}
+						return 'unknown';
+					}
+				},
+
+				error_msg: function(text) {
 					var error_code_map = {
 						0: "",
 						1: "发生未知错误",
@@ -484,12 +468,10 @@ var YAAW = (function() {
 						29: "因暂时超载或维护, 远程服务器无法处理请求.",
 						30: "Aria2 无法解析 JSON-RPC 请求.",
 					};
-					return function(text) {
-						return error_code_map[text] ? " " + error_code_map[text] : "";
-					};
+					return error_code_map[text] ? " " + error_code_map[text] : "";
 				},
 
-				status_icon: function() {
+				status_icon: function(text) {
 					var status_icon_map = {
 						active: "glyphicon-download-alt",
 						waiting: "glyphicon-time",
@@ -498,12 +480,10 @@ var YAAW = (function() {
 						complete: "glyphicon-ok",
 						removed: "glyphicon-trash",
 					};
-					return function(text) {
-						return "glyphicon " + status_icon_map[text] || "";
-					};
+					return "glyphicon " + status_icon_map[text] || "";
 				},
 
-				status_text: function() {
+				status_text: function(text) {
 					var status_text_map = {
 						active: "下载中",
 						waiting: "等待中",
@@ -512,9 +492,7 @@ var YAAW = (function() {
 						complete: "下载完成",
 						removed: "已删除",
 					};
-					return function(text) {
-						return status_text_map[text] || "";
-					};
+					return status_text_map[text] || "";
 				},
 			},
 		},
