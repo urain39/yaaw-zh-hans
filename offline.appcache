@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2019-03-24 15:53
+# 2020-07-27 18:22
 
 CACHE:
 index.html
@@ -7,12 +7,12 @@ favicon.ico
 js/aria2.js
 js/bootstrap.min.js
 js/html5shiv.min.js
+js/ij2tpl.min.js
 js/jquery-1.7.2.min.js
 js/jquery.Storage.min.js
 js/jquery.base64.min.js
 js/jquery.jsonrpc.js
 js/jquery.jsonrpc.min.js
-js/mustache.min.js
 js/peerid.js
 js/peerid.min.js
 js/yaaw-moeloli.ml.js
