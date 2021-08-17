@@ -716,10 +716,10 @@ if (typeof ARIA2 == "undefined" || !ARIA2) var ARIA2 = (function() {
 					$("#global-speed").empty().append(YAAW.tpl.global_speed(result));
 					var title = "";
 					if (result.downloadSpeed > 0) {
-						 title += "↓" + YAAW.tpl.view.format_size_0()(result.downloadSpeed) + "/s ";
+						 title += "↓" + YAAW.tpl.view.format_size_0(result.downloadSpeed) + "/s ";
 					}
 					if (result.uploadSpeed > 0) {
-						title += "↑" + YAAW.tpl.view.format_size_0()(result.uploadSpeed) + "/s ";
+						title += "↑" + YAAW.tpl.view.format_size_0(result.uploadSpeed) + "/s ";
 					}
 					title += (title ? "- " : "") + "Aria2 Web控制台";
 					document.title = title;

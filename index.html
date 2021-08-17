@@ -374,7 +374,7 @@
 					{{?creationDate}}<li><strong>发布时间: </strong>{{creationDate | format_date}}</li>{{/creationDate}}
 					{{?comment}}<li><strong>种子注释: </strong>{{comment}}</li>{{/comment}}
 				{{/bittorrent}}
-				<li class="bitfield"><strong>文件区块: </strong>{{#bitfield | bitfield}}</li>
+				<li class="bitfield"><strong>文件区块: </strong>{{?bitfield}}{{#. | bitfield}}{{/bitfield}}</li>
 			</ul>
 		</script>
 
