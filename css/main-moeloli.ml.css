@@ -182,7 +182,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 }
 
 /* fix modal height */
-@media (max-height: 640px) {
+@media (max-height: 1100px) {
     #add-task-modal, #setting-modal {
         top: 3%;
         bottom: 3%;
@@ -215,7 +215,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
     }
 
     .modal-body {
-        height: 78%;
+        height: 84%;
         overflow-y: auto;
         position: relative;
     }
