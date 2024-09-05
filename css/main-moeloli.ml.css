@@ -229,6 +229,18 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
     }
 }
 
+@media (max-height: 640px) {
+    .modal-body {
+        height: 80%;
+    }
+}
+
+@media (max-height: 550px) {
+    .modal-body {
+        height: 78%;
+    }
+}
+
 @media (max-height: 360px) {
     .modal-body {
         height: 62%;
